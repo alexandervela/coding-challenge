@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../static/partials/head.ejs %>
+  </head>
+  <body>
+    <% include ../static/partials/navbar.ejs %>
+
+   <main class="container">
+      <h1><%= wall.title %></h1>
+      <a href="/walls/<%= wall.id %>/comments/new" class="btn btn-success">New Comment</a>
+
+      <p><%= wall.description %></p>
+      <hr>
+
+    <h1>Comments</h1>
+
+    <ul class="list-group">
+      <% wall.comments.forEach((comment) => { %>
+        <li class="list-group-item">
+          <a href="/walls/<%= wall.id %>/comments/<%= comment.id %>"> <%= comment.username %> </a>
+        </li>
+      <% }) %>
+    </ul>
+   </main>
+
+    <% include ../static/partials/baseScripts.ejs %>
+
+  </body>
+</html>

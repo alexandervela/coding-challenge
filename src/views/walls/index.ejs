@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../static/partials/head.ejs %>
+  </head>
+  <body>
+    <main class="container">
+      <% include ../static/partials/navbar.ejs %>
+
+      <h1>Walls</h1>
+
+      <a href="/walls/new" class="btn btn-success">New Wall</a>
+
+      <ul class="list-group">
+        <% walls.forEach((wall) => { %>
+          <li class="list-group-item">
+            <a href="/walls/<%= wall.id %>"> <%= wall.title %> </a>
+          </li>
+        <% }) %>
+      </ul>
+
+    </main>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../static/partials/head.ejs %>
+  </head>
+  <body>
+    <% include ../static/partials/navbar.ejs %>
+
+    <main class="container">
+
+        <% include ../static/partials/messages.ejs %>
+
+      <h1>New Comment</h1>
+
+      <form action="/walls/<%= wallId %>/comments/create" method="post">
+        <div class="form-group">
+          <label for="username">Comment Username</label>
+          <input type="text" class="form-control" name="username" aria-describedby="usernameHelp" placeholder="Enter Username">
+          <small class="text-muted" id="usernameHelp">username must be 2 or more characters in length.</small>
+        </div>
+        <div class="form-group">
+          <label for="body">Comment Body</label>
+          <textarea rows="4" class="form-control" name="body" placeholder="Enter Comment body"></textarea>
+          <small class="text-muted" id="bodyHelp">body must be 10 or more characters in length.</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </main>
+
+    <% include ../static/partials/baseScripts.ejs %>
+
+  </body>
+</html>
